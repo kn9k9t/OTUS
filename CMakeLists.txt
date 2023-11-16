@@ -9,7 +9,7 @@ add_executable(ip_filter src/main.cpp)
 add_library(libipv4 src/IPv4/IPv4.h src/IPv4/IPv4.cpp)
 add_executable(ipv4tests src/Tests/IPv4Test.cpp)
 
-set_target_properties(ip_filter libipv4 PROPERTIES
+set_target_properties(ip_filter libipv4 ipv4tests PROPERTIES
     CXX_STANDARD 14
     CXX_STANDARD_REQUIRED ON
 )
