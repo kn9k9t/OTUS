@@ -1,5 +1,4 @@
-#ifndef IPV4_H
-#define IPV4_H
+#pragma once
 //-----------------------------------------------
 #include <array>
 #include <string>
@@ -25,4 +24,3 @@ void print(const VecIPv4 & ips);
 VecIPv4 getFilteredStrict(const VecIPv4 & ips, const std::array<int, 4> & filterMask);
 VecIPv4 getFilteredAny(const VecIPv4 & ips, const std::array<int, 4> & filterMask);
 //-----------------------------------------------
-#endif // IPV4_H

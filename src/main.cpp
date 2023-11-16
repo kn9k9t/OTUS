@@ -2,26 +2,16 @@
 #include <fstream>
 #include "IPv4.h"
 //-----------------------------------------------
-const std::string l_pathToFileWithIPs = "../ip_filter.tsv";
-//-----------------------------------------------
 bool readIPs(VecIPv4 & ips)
 {
   try
   {
-    std::ifstream ipsFile;
-    ipsFile.open(l_pathToFileWithIPs);
-    if (ipsFile.is_open() == false)
-    {
-      std::cout << "Can't open file: " << l_pathToFileWithIPs;
-      return false;
-    }
-
-    for (std::string line; std::getline(ipsFile, line);)
+    for (std::string line; std::getline(std::cin, line);)
     {
       size_t tabPos = line.find('\t');
       if (tabPos == std::string::npos)
       {
-        std::cout << "Wrong line format, tabulation absent in line: " << line;
+        std::cout << "Wrong line format, tabulation absent in line: " << line << '\n';
         return false;
       }
       IPv4 ip;

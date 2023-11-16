@@ -80,7 +80,7 @@ void print(const VecIPv4 & ips)
 {
   for (auto ip : ips)
   {
-    std::cout << ip << '\n';
+    std::cout << ip << std::endl;
   }
 }
 //-----------------------------------------------
