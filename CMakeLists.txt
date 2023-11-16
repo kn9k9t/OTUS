@@ -1,9 +1,6 @@
 cmake_minimum_required(VERSION 3.2)
 
-set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
-set(PROJECT_VERSION 0.0.${PATCH_VERSION})
-
-project(ip_filter VERSION ${PROJECT_VERSION})
+project(ip_filter)
 
 find_package(GTest REQUIRED)
 
@@ -16,19 +13,17 @@ set_target_properties(ip_filter libipv4 PROPERTIES
     CXX_STANDARD_REQUIRED ON
 )
 
+target_link_libraries(ip_filter PRIVATE libipv4)
+target_include_directories(ip_filter PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/IPv4)
+
 target_include_directories(tests PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/IPv4)
+
+set_target_properties(libipv4 PROPERTIES LINKER_LANGUAGE CXX)
 
 target_link_libraries(tests
     GTest::gtest_main
     libipv4
 )
-
-set_target_properties(libipv4 PROPERTIES LINKER_LANGUAGE CXX)
-
-target_link_libraries(ip_filter PRIVATE
-    libipv4
-)
-target_include_directories(ip_filter PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/IPv4)
 
 if (MSVC)
     target_compile_options(ip_filter PRIVATE
@@ -46,16 +41,11 @@ else ()
     )
 endif()
 
-
-
 install(TARGETS ip_filter RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
-
 set(CPACK_PACKAGE_CONTACT nikpavl04@gmail.com)
-
 include(CPack)
 
 enable_testing()
-
 add_test(tests tests)

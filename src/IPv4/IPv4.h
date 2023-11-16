@@ -20,7 +20,7 @@ std::ostream & operator<<(std::ostream & os, const IPv4 & ip);
 //-----------------------------------------------
 typedef std::vector<IPv4> VecIPv4;
 //-----------------------------------------------
-void sort(VecIPv4 & ips);
+void sortDescending(VecIPv4 & ips);
 void print(const VecIPv4 & ips);
 VecIPv4 getFilteredStrict(const VecIPv4 & ips, const std::array<int, 4> & filterMask);
 VecIPv4 getFilteredAny(const VecIPv4 & ips, const std::array<int, 4> & filterMask);

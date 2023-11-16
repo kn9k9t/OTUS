@@ -10,7 +10,7 @@ jobs:
         with:
           submodules: true
       - run: sh _tools/install_require.sh
-      - run: cmake . -DPATCH_VERSION=${{ github.run_number }}
+      - run: cmake .
       - run: cmake --build .
       - run: cmake --build . --target test
       - run: cmake --build . --target package

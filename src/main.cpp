@@ -41,7 +41,7 @@ int main()
 {
   VecIPv4 ips;
   readIPs(ips);
-  sort(ips);
+  sortDescending(ips);
   print(ips);
   print(getFilteredStrict(ips, std::array<int, 4>({1, -1, -1, -1})));
   print(getFilteredStrict(ips, std::array<int, 4>({46, 70, -1, -1})));

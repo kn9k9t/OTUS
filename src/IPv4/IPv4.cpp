@@ -4,7 +4,7 @@
 //-----------------------------------------------
 bool IPv4::fill(const std::string & addr)
 {
-  auto splitStringBySeparator = [](const std::string & str, char separator) -> std::vector<std::string>
+  auto splitStringBySeparator = [](const std::string & str, char separator)
   {
     std::vector<std::string> result;
     size_t sepPos = str.find_first_of(separator);
@@ -35,7 +35,7 @@ bool IPv4::fill(const std::string & addr)
     return true;
   };
 
-  auto addrDigits = splitStringBySeparator(addr, '.');
+  std::vector<std::string> addrDigits = splitStringBySeparator(addr, '.');
   if (addrDigits.size() != 4)
     return false;
 
@@ -67,7 +67,7 @@ std::ostream & operator<<(std::ostream & os, const IPv4 & ip)
             << (int)ip._addr[3];
 }
 //-----------------------------------------------
-void sort(VecIPv4 & ips)
+void sortDescending(VecIPv4 & ips)
 {
   auto comp = [&](const IPv4 & lhs, const IPv4 & rhs)
   {

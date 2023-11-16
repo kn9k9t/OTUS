@@ -71,7 +71,7 @@ TEST(IPv4Test, SortInReverseLexicographical)
   expect[8].fill("2.2.2.1");
   expect[9].fill("1.1.1.1");
 
-  sort(ips);
+  sortDescending(ips);
   EXPECT_EQ(expect, ips);
 }
 //-----------------------------------------------
