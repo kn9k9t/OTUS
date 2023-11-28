@@ -8,7 +8,7 @@ class CustomContainer
 public:
   CustomContainer()
   {
-    auto * ptr = alloc.allocate(10);
+    auto * ptr = alloc.allocate(1);
     if (ptr)
       _data = ptr;
   }
