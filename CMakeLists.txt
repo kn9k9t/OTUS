@@ -1,48 +1,37 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.5)
 
 set(PROJECT_VERSION 0.0.1)
-project(allocator VERSION ${PROJECT_VERSION})
+project(print_ip VERSION ${PROJECT_VERSION})
 
-find_package(GTest REQUIRED)
+add_executable(print_ip src/main.cpp)
+add_library(libprintip src/PrintIp.h)
 
-add_executable(allocator src/main.cpp)
-add_library(liballocator src/CustomAllocator.h )
-add_library(libcontainer src/CustomContainer.h)
-
-set_target_properties(allocator liballocator libcontainer PROPERTIES
-    CXX_STANDARD 14
+set_target_properties(print_ip PROPERTIES
+    CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
 )
 
-target_link_libraries(allocator PRIVATE liballocator)
-target_include_directories(allocator PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/IPv4)
+target_link_libraries(print_ip PRIVATE libprintip)
 
-set_target_properties(liballocator PROPERTIES LINKER_LANGUAGE CXX)
-set_target_properties(libcontainer PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(libprintip PROPERTIES LINKER_LANGUAGE CXX)
 
 if (MSVC)
-    target_compile_options(allocator PRIVATE
+    target_compile_options(print_ip PRIVATE
         /W4
     )
-    target_compile_options(liballocator PRIVATE
-        /W4
-    )
-    target_compile_options(libcontainer PRIVATE
+    target_compile_options(libprintip PRIVATE
         /W4
     )
 else ()
-    target_compile_options(allocator PRIVATE
+    target_compile_options(print_ip PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    target_compile_options(liballocator PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
-    target_compile_options(libcontainer PRIVATE
+    target_compile_options(libprintip PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
 endif()
 
-install(TARGETS allocator RUNTIME DESTINATION bin)
+install(TARGETS print_ip RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")

@@ -1,65 +1,14 @@
-#include <iostream>
-#include <map>
-#include <vector>
-#include "CustomAllocator.h"
-#include "CustomContainer.h"
-//-----------------------------------------------
-unsigned int factorial(unsigned int n)
-{
-  if (n == 0)
-    return 1;
-  return n * factorial(n - 1);
-}
-//-----------------------------------------------
-template <typename T>
-void printMap(const T & map)
-{
-  for (auto & val : map)
-  {
-    std::cout << val.first << " " << val.second << std::endl;
-  }
-  std::cout << std::endl;
-}
-//-----------------------------------------------
-template <typename T>
-void printVec(const T & container)
-{
-  for (auto & val : container)
-  {
-    std::cout << val << std::endl;
-  }
-  std::cout << std::endl;
-}
+#include "PrintIp.h"
 //-----------------------------------------------
 int main()
 {
-  std::map<int, int> firstMap;
-  for (int i = 0; i < 10; ++i)
-  {
-    firstMap.emplace(i, factorial(i));
-  }
-
-  std::map<int, int, std::less<int>, CustomAllocator<std::pair<int, int>>> secondMap;
-  for (int i = 0; i < 10; ++i)
-  {
-    secondMap.emplace(i, factorial(i));
-  }
-
-  CustomContainer<int> firstCustom;
-  for (int i = 0; i < 10; ++i)
-  {
-    firstCustom.push_back(i);
-  }
-
-  CustomContainer<int, CustomAllocator<int>> secondCustom;
-  for (int i = 0; i < 10; ++i)
-  {
-    secondCustom.push_back(i);
-  }
-
-  printMap(firstMap);
-  printMap(secondMap);
-  printVec(firstCustom);
-  printVec(secondCustom);
+  print_ip(int8_t{-1}); // 255
+  print_ip(int16_t{0}); // 0.0
+  print_ip(int32_t{2130706433}); // 127.0.0.1
+  print_ip(int64_t{8875824491850138409}); // 123.45.67.89.101.112.131.41
+  print_ip(std::string{"Hello, World!"}); // Hello, World!
+  print_ip(std::vector<int>{100, 200, 300, 400}); // 100.200.300.400
+  print_ip(std::list<short>{400, 300, 200, 100}); // 400.300.200.100
+  print_ip(std::make_tuple(123, 456, 789, 0)); // 123.456.789.0
 }
 //-----------------------------------------------
