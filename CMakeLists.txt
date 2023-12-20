@@ -1,62 +1,47 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.5)
 
 set(PATCH_VERSION "1" CACHE INTERNAL "Patch version")
 set(PROJECT_VERSION 0.0.${PATCH_VERSION})
 
-project(helloworld VERSION ${PROJECT_VERSION})
+project(vector_editor VERSION ${PROJECT_VERSION})
 
-find_package(GTest REQUIRED)
+add_executable(graphic-editor src/main.cpp)
+add_library(editor-lib
+  src/Primitives.h
+  src/FileHandler.h
+  src/EditorController.h
+  src/UserInterface.h
+  )
 
-configure_file(src/Version/version.h.in version.h)
-
-add_executable(helloworld_cli src/main.cpp)
-add_library(libversion src/Version/SoftwareVersion.h)
-add_executable(tests src/Tests/SoftwareVersionTest.cpp)
-
-set_target_properties(helloworld_cli libversion tests PROPERTIES
-    CXX_STANDARD 14
+set_target_properties(graphic-editor PROPERTIES
+    CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
 )
 
-set_target_properties(libversion PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(editor-lib PROPERTIES LINKER_LANGUAGE CXX)
+target_include_directories(editor-lib PRIVATE src)
 
-target_include_directories(libversion
-    PUBLIC "${CMAKE_BINARY_DIR}"
-)
-
-target_link_libraries(helloworld_cli PRIVATE
-    libversion
-)
-target_link_libraries(tests
-    GTest::gtest_main
-    libversion
-)
+target_link_libraries(graphic-editor PRIVATE editor-lib)
 
 if (MSVC)
-    target_compile_options(helloworld_cli PRIVATE
+    target_compile_options(graphic-editor PRIVATE
         /W4
     )
-    target_compile_options(libversion PRIVATE
-        /W4
-    )
-    target_compile_options(tests PRIVATE
+    target_compile_options(editor-lib PRIVATE
         /W4
     )
 else ()
-    target_compile_options(helloworld_cli PRIVATE
+    target_compile_options(graphic-editor PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    target_compile_options(libversion PRIVATE
-        -Wall -Wextra -pedantic -Werror
-    )
-    target_compile_options(tests PRIVATE
+    target_compile_options(editor-lib PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
 endif()
 
 
 
-install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
+install(TARGETS graphic-editor RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
