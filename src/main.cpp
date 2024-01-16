@@ -1,14 +1,34 @@
-#include "PrintIp.h"
+//-----------------------------------------------
+#include "Matrix.h"
+#include <cassert>
+#include <iostream>
 //-----------------------------------------------
 int main()
 {
-  print_ip(int8_t{-1}); // 255
-  print_ip(int16_t{0}); // 0.0
-  print_ip(int32_t{2130706433}); // 127.0.0.1
-  print_ip(int64_t{8875824491850138409}); // 123.45.67.89.101.112.131.41
-  print_ip(std::string{"Hello, World!"}); // Hello, World!
-  print_ip(std::vector<int>{100, 200, 300, 400}); // 100.200.300.400
-  print_ip(std::list<short>{400, 300, 200, 100}); // 400.300.200.100
-  print_ip(std::make_tuple(123, 456, 789, 0)); // 123.456.789.0
+  Matrix<int, 0> matrix;
+  for (int i = 0; i < 10; ++i)
+    matrix[i][i] = i;
+
+  for (int i = 9; i >= 0; --i)
+    matrix[9 - i][i] = i;
+
+  for (int i = 1; i < 9; ++i)
+  {
+    for (int k = 1; k < 9; ++k)
+    {
+      std::cout << matrix[i][k] << ' ';
+    }
+    std::cout << '\n';
+  }
+
+  std::cout << matrix.size() << std::endl;
+
+  for (auto element : matrix)
+  {
+  int x = element.first.first;
+  int y = element.first.second;
+  int v = element.second;
+  std::cout << x << ' ' << y  << ' ' << v << std::endl;
+  }
 }
 //-----------------------------------------------
