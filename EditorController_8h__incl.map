@@ -1,0 +1,18 @@
+<map id="src/EditorController.h" name="src/EditorController.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="206,5,348,31"/>
+<area shape="rect" id="Node000002" href="$Primitives_8h.html" title=" " alt="" coords="174,79,263,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="269,33,240,69,236,65,265,30"/>
+<area shape="rect" id="Node000008" href="$FileHandler_8h.html" title=" " alt="" coords="298,79,395,105"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="290,29,326,66,322,70,286,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,153,66,178"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="188,108,81,149,79,144,186,103"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="90,153,141,178"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="202,107,147,146,144,141,199,103"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="165,153,226,178"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="217,106,207,138,201,137,212,104"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="250,153,307,178"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="230,103,260,139,256,142,226,107"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="332,153,385,178"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="243,103,322,143,320,148,241,108"/>
+<area shape="poly" id="edge8_Node000008_Node000007" title=" " alt="" coords="351,104,356,137,351,138,346,105"/>
+</map>

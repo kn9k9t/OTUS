@@ -1,0 +1,9 @@
+<map id="Line" name="Line">
+<area shape="rect" id="Node000001" title=" " alt="" coords="72,322,109,387"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,179,96,244"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="54,243,56,270,62,297,67,309,62,311,57,299,51,271,48,244"/>
+<area shape="rect" id="Node000003" href="$structColor.html" title=" " alt="" coords="120,179,163,244"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="133,245,110,307,105,305,128,243"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="115,5,167,71"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="144,71,144,162,139,162,139,71"/>
+</map>

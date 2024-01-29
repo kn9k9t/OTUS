@@ -1,0 +1,11 @@
+<map id="Circle" name="Circle">
+<area shape="rect" id="Node000001" title=" " alt="" coords="116,307,161,372"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,179,96,244"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,242,90,281,107,303,103,306,85,285,62,245"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="120,179,157,244"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,244,141,290,136,290,136,244"/>
+<area shape="rect" id="Node000004" href="$structColor.html" title=" " alt="" coords="201,179,244,244"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,245,196,284,175,309,171,306,191,282,210,243"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="197,5,249,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="225,71,225,162,220,162,220,71"/>
+</map>

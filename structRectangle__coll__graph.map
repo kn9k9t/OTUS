@@ -1,0 +1,11 @@
+<map id="Rectangle" name="Rectangle">
+<area shape="rect" id="Node000001" title=" " alt="" coords="103,322,174,387"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,179,96,244"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="64,243,90,297,97,307,93,310,85,299,59,245"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="120,179,157,244"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="141,244,141,305,136,305,136,244"/>
+<area shape="rect" id="Node000004" href="$structColor.html" title=" " alt="" coords="201,179,244,244"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="218,245,209,272,196,299,187,311,183,308,191,297,204,270,213,243"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="197,5,249,71"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="225,71,225,162,220,162,220,71"/>
+</map>
