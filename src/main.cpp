@@ -1,11 +1,12 @@
 #include <iostream>
-#include "Version/SoftwareVersion.h"
 //-----------------------------------------------
+#include "UserInterface.h"
 //-----------------------------------------------
 int main()
 {
-  std::cout << "Build: " << getSoftwareVersion() << "\n"
-            << "Hello World!" << "\n";
-  return 0;
+  UserInterface editorUI;
+  editorUI.createPrimitive();
+  editorUI.editPrimitive();
+  editorUI.deletePrimitive();
 }
 //-----------------------------------------------
