@@ -1,37 +1,43 @@
 cmake_minimum_required(VERSION 3.5)
 
 set(PROJECT_VERSION 0.0.1)
-project(matrix VERSION ${PROJECT_VERSION})
+project(bulk VERSION ${PROJECT_VERSION})
 
-add_executable(matrix src/main.cpp)
-add_library(libmatrix src/Matrix.h)
+add_executable(bulk src/main.cpp)
+add_library(libbulk
+  src/CommonTypes.h
+  src/Printer.h
+  src/CmdMng.h
+  src/CmdMng.cpp
+  src/Bulk.h
+  src/Bulk.cpp)
 
-set_target_properties(matrix PROPERTIES
+set_target_properties(bulk PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
 )
 
-target_link_libraries(matrix PRIVATE libmatrix)
+target_link_libraries(bulk PRIVATE libbulk)
 
-set_target_properties(libmatrix PROPERTIES LINKER_LANGUAGE CXX)
+set_target_properties(libbulk PROPERTIES LINKER_LANGUAGE CXX)
 
 if (MSVC)
-    target_compile_options(matrix PRIVATE
+    target_compile_options(bulk PRIVATE
         /W4
     )
-    target_compile_options(libmatrix PRIVATE
+    target_compile_options(libbulk PRIVATE
         /W4
     )
 else ()
-    target_compile_options(matrix PRIVATE
+    target_compile_options(bulk PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
-    target_compile_options(libmatrix PRIVATE
+    target_compile_options(libbulk PRIVATE
         -Wall -Wextra -pedantic -Werror
     )
 endif()
 
-install(TARGETS matrix RUNTIME DESTINATION bin)
+install(TARGETS bulk RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
