@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 6.0.2, 2024-03-02T12:46:10. -->
+<!-- Written by QtCreator 6.0.2, 2024-03-06T22:38:52. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -163,9 +163,10 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">bulk</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.bulk</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">bulk</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">bayan</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.bayan</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">bayan</value>
+    <value type="QString" key="RunConfiguration.Arguments">-d 1</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
