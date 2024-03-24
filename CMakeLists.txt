@@ -5,12 +5,16 @@ project(bulk VERSION ${PROJECT_VERSION})
 
 add_executable(bulk src/main.cpp)
 add_library(libbulk
-  src/CommonTypes.h
-  src/Printer.h
   src/CmdMng.h
   src/CmdMng.cpp
   src/Bulk.h
-  src/Bulk.cpp)
+  src/Bulk.cpp
+  src/Common/CommonTypes.h
+  src/Handlers/FileHandler.h
+  src/Handlers/TerminalHandler.h
+)
+
+include_directories(libulk src/Handlers src/Common)
 
 set_target_properties(bulk PROPERTIES
     CXX_STANDARD 17

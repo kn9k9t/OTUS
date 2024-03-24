@@ -7,7 +7,7 @@ class IBulk
 {
 public:
   virtual ~IBulk() = default;
-  virtual void onBulkFilled(VecString && data) = 0;
+  virtual void onBulkFilled(const VecString & data) = 0;
 };
 //-----------------------------------------------
 class Bulk

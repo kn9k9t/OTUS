@@ -7,7 +7,7 @@ CmdMng::CmdMng(int bulkSize) : _blockNestingDepth(0), _bulk(bulkSize, *this) {}
 CmdMng::~CmdMng()
 {
   if (_blockNestingDepth == 0)
-    _printer.print(_bulk.release());
+    releaseBulk();
 }
 //-----------------------------------------------
 void CmdMng::addNewCmd(std::string && cmd)
@@ -15,7 +15,7 @@ void CmdMng::addNewCmd(std::string && cmd)
   if (cmd == "{")
   {
     if (_blockNestingDepth == 0)
-      _printer.print(_bulk.release());
+      releaseBulk();
     ++_blockNestingDepth;
     _bulk.useDynamicSize();
     return;
@@ -25,17 +25,47 @@ void CmdMng::addNewCmd(std::string && cmd)
   {
     --_blockNestingDepth;
     if (_blockNestingDepth <= 0 && _bulk.isEmpty() == false)
-      _printer.print(_bulk.release());
+      releaseBulk();
     return;
   }
 
   if (_bulk.isEmpty())
-    _printer.onNewData();
+    onNewBulkStarted();
   _bulk.add(std::move(cmd));
 }
 //-----------------------------------------------
-void CmdMng::onBulkFilled(VecString && data)
+void CmdMng::attach(ObserverWeakPtr && observer)
 {
-  _printer.print(std::move(data));
+  _observers.push_back(std::move(observer));
+}
+//-----------------------------------------------
+void CmdMng::releaseBulk()
+{
+  const auto data = _bulk.release();
+  forAllObservers([&](ObserverPtr observer)
+  {
+    observer->handle(data);
+  });
+}
+//-----------------------------------------------
+void CmdMng::handleBulk(const VecString & data)
+{
+  forAllObservers([&](ObserverPtr observer)
+  {
+    observer->handle(data);
+  });
+}
+//-----------------------------------------------
+void CmdMng::onNewBulkStarted()
+{
+  forAllObservers([&](ObserverPtr observer)
+  {
+    observer->onNewBulkStarted();
+  });
+}
+//-----------------------------------------------
+void CmdMng::onBulkFilled(const VecString & data)
+{
+  handleBulk(data);
 }
 //-----------------------------------------------
